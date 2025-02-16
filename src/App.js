@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Dashboard from './components/Dashboard';
+import AddTask from './components/AddTask';
+import EditTask from './components/EditTask';
 
-function App() {
+const App = () => {
+  const isAuthenticated = () => !!localStorage.getItem('jwtToken');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/dashboard"
+          element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/add-task"
+          element={isAuthenticated() ? <AddTask /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/edit-task/:id"
+          element={isAuthenticated() ? <EditTask /> : <Navigate to="/login" />}
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

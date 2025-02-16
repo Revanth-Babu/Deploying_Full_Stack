@@ -1,0 +1,31 @@
+.edit-task-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.edit-task-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.edit-task-container input, .edit-task-container select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.edit-task-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.edit-task-container button:hover {
+  background-color: #1976d2;
+}
