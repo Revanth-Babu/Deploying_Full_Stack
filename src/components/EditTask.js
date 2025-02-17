@@ -32,7 +32,7 @@ const EditTask = () => {
   const handleEditTask = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('jwtToken');
-    const response = await fetch(`https://deploy-backend-sec-1.onrender.com/${id}`, {
+    const response = await fetch(`https://deploy-backend-sec-1.onrender.com/tasks/${id}`, {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json',
