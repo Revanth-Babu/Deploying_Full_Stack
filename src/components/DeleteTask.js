@@ -9,7 +9,7 @@ const DeleteTask = ({ taskId }) => {
     const token = localStorage.getItem('jwtToken');
     const confirmDelete = window.confirm('Are you sure you want to delete this task?');
     if (confirmDelete) {
-      const response = await fetch(`https://deploy-backend-1-38gr.onrender.com/tasks/${taskId}`, {
+      const response = await fetch(`https://deploy-backend-sec-1.onrender.com/tasks/${taskId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`

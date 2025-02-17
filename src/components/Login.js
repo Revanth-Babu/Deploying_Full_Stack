@@ -1,4 +1,4 @@
-// src/components/Login.js
+// // src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
@@ -10,7 +10,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://deploy-backend-1-38gr.onrender.com/login', {
+    const response = await fetch('https://deploy-backend-sec-1.onrender.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -23,6 +23,10 @@ const Login = () => {
     } else {
       alert('Invalid credentials');
     }
+  };
+
+  const handleSignupRedirect = () => {
+    navigate('/signup');
   };
 
   return (
@@ -43,7 +47,12 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <div className="button-container">
+          <button type="submit">Login</button>
+          <button type="button" onClick={handleSignupRedirect}>
+            Signup
+          </button>
+        </div>
       </form>
     </div>
   );

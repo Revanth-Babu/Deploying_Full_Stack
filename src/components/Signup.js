@@ -10,7 +10,7 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://deploy-backend-1-38gr.onrender.com/signup', {
+    const response = await fetch('https://deploy-backend-sec-1.onrender.com/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),

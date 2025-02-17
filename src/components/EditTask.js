@@ -11,9 +11,9 @@ const EditTask = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchTask = async () => {
+    const fetchTask = async (id) => {
       const token = localStorage.getItem('jwtToken');
-      const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const response = await fetch(`https://deploy-backend-sec-1.onrender.com/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.ok) {
@@ -32,7 +32,7 @@ const EditTask = () => {
   const handleEditTask = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('jwtToken');
-    const response = await fetch(`https://deploy-backend-1-38gr.onrender.com/tasks/${id}`, {
+    const response = await fetch(`https://deploy-backend-sec-1.onrender.com/${id}`, {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json',

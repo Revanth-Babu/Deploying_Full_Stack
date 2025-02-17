@@ -12,7 +12,7 @@ const AddTask = () => {
   const handleAddTask = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('jwtToken');
-    const response = await fetch('https://deploy-backend-1-38gr.onrender.com/tasks', {
+    const response = await fetch('https://deploy-backend-sec-1.onrender.com/tasks', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
